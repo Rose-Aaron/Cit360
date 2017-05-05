@@ -1,0 +1,20 @@
+import java.util.*;
+public class Collections {
+
+   public static void main(String[] args) {
+      List r2 = new ArrayList();
+      r2.add("Han Solo");
+      r2.add("Darth Vader");
+      r2.add("C3PO");      
+      System.out.println(" ArrayList Elements");
+      System.out.print("\t" + r2);
+
+      List c3 = new LinkedList();
+      c3.add("Luke Skywalker");
+      c3.add("Princess Leia");
+      c3.add("Ayan");
+      System.out.println();
+      System.out.println(" LinkedList Elements");
+      System.out.print(c3);
+   }
+}
