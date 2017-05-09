@@ -2,11 +2,11 @@ package appcontrol;
 
 public class AppController
 {
-  private Dispatcher dispatcher;
+  private Dispatcher dispatch;
 
   public AppController()
   {
-    dispatcher = new Dispatcher();
+    dispatcher = new Dispatch();
   }
 
   private boolean isAuthenticUser()
