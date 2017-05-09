@@ -2,30 +2,30 @@ package appcontrol;
 
 public class Dispatch
 {
-  private ChapterOne  Episode1;
-  private ChapterTwo Episode2;
-  private ChapterThree  Episode3;
+  private EpisodeOne One;
+  private EpisodeTwo Two;
+  private EpisodeThree Three;
 
   public Dispatch()
   {
-    Episode1 = new ChapterOne();
-    Episode2 = new ChapterTwo();
-    Episode3 = new ChapterThree();
+    One = new EpisodeOne();
+    Two = new EpisodeTwo();
+    Three = new EpisodeThree();
   }
 
   public void dispatch( String request )
   {
-    if( request.equalsIgnoreCase("EPISODE1") )
+    if( request.equalsIgnoreCase("ONE") )
     {
-      Episode1.show();
+      One.show();
     }
-    else if( request.equalsIgnoreCase("EPISODE2") )
+    else if( request.equalsIgnoreCase("TWO") )
     {
-      Episode2.show();
+      Two.show();
     }
     else
     {
-      Episode3.show();
+      Three.show();
     }
   }
 }
