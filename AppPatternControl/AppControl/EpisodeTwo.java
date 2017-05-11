@@ -4,6 +4,6 @@ public class EpisodeTwo
 {
   public void show()
   {
-    System.out.println("Displaying Episode Two");
+    System.out.println("Welcome to Episode Two!");
   }
 }
