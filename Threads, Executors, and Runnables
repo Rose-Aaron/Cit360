@@ -1,3 +1,4 @@
+// Thread & Executor
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -14,4 +15,49 @@ public class Thread {
         }
         System.out.println("Finished all threads");
     }
+}
+
+// Runnable
+class Runnable implements Runnable {
+   private Thread t;
+   private String thread;
+   
+   Runnable( String name){
+       threadName = name;
+       System.out.println("Creating " +  thread );
+   }
+   public void run() {
+      System.out.println("Running " +  thread );
+      try {
+         for(int i = 4; i > 0; i--) {
+            System.out.println("Thread: " + thread + ", " + i);
+            Thread.sleep(50);
+         }
+     } catch (InterruptedException e) {
+         System.out.println("Thread " +  thread + " interrupted.");
+     }
+     System.out.println("Thread " +  thread + " exiting.");
+   }
+   
+   public void start ()
+   {
+      System.out.println("Starting " +  thread );
+      if (t == null)
+      {
+         t = new Thread (this, thread);
+         t.start ();
+      }
+   }
+
+}
+
+public class RunnableThread {
+   public static void main(String args[]) {
+   
+      Runnable R1 = new Runnable( "Thread1");
+      R1.start();
+      
+      Runnable R2 = new Runnable( "Thread2");
+      R2.start();
+   }   
 }
