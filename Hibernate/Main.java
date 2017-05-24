@@ -15,8 +15,8 @@ public class Main {
         department.setDepartmentName("IT");
         session.save(department);
  
-        Employee 1 = new Employee("Aaron", "Rose", "4783");
-        Employee 2 = new Employee("Luke", "Skywalker", "9120");
+        Employee emp1 = new Employee("Aaron", "Rose", "4783");
+        Employee emp2 = new Employee("Luke", "Skywalker", "9120");
  
         emp1.setDepartment(department);
         emp2.setDepartment(department);
