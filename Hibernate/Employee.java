@@ -1,4 +1,4 @@
-package net.viralpatel.hibernate;
+package hibernate;
  
 import java.sql.Date;
 
