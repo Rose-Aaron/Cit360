@@ -1,0 +1,32 @@
+public class StoreServlet extends HttpServlet {
+    private ApplicationController AppController = new ApplicationController();
+    private StoreModel Model = new StoreModel();
+
+    public void init(){
+        AppController.mapCommand("register", new RegistrationHandler());
+        AppController.mapCommand("login", new LoginHandler());
+        AppController.mapCommand("logout", new LogoutHandler());
+        
+    }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        try {
+            JSONInputStream inFromClient = new JSONInputStream(request.getInputStream());
+            JSONOutputStream outToClient = new JSONOutputStream(response.getOutputStream());
+
+            HashMap<String, Object> dataMap = (HashMap) inFromClient.readObject();
+            dataMap.put("model",this.theModel);
+            dataMap.put("toClient", outToClient);
+
+            String aCommand = (String) dataMap.get("command");
+            theAppController.handleRequest(aCommand, dataMap);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request,response);
+    }
+}
