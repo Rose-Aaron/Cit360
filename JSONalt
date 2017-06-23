@@ -1,0 +1,36 @@
+public class Alt {
+    public static void main(String[] args) {
+        String personJSONData =
+            "  {" +
+            "   \"name\": \"Darth Vader\", " +
+            "   \"age\" : 35, " +
+            "   \"isMarried\" : false, " +
+            "   \"address\": { " +
+            "     \"street\": \"#666, Westerose Dr\", " +
+            "     \"zipCode\": \"99666\" " +
+            "   }, " +
+            "   \"phoneNumbers\": [\"888-666-9966\", \"99-666-1616\"] " +
+            " }";
+
+        JsonReader reader = Json.createReader(new StringReader(personJSONData));
+
+        JsonObject personObject = reader.readObject();
+
+        reader.close();
+
+        System.out.println("Name   : " + personObject.getString("name"));
+        System.out.println("Age    : " + personObject.getInt("age"));
+        System.out.println("Married: " + personObject.getBoolean("isMarried"));
+
+        JsonObject addressObject = personObject.getJsonObject("address");
+        System.out.println("Address: ");
+        System.out.println(addressObject.getString("street"));
+        System.out.println(addressObject.getString("zipCode"));
+
+        System.out.println("Phone  : ");
+         JsonArray phoneNumbersArray = personObject.getJsonArray("phoneNumbers");
+        for (JsonValue jsonValue : phoneNumbersArray) {
+            System.out.println(jsonValue.toString());
+        }
+    }
+}
